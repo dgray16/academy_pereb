@@ -26,13 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `addresses`
 --
 
-CREATE TABLE IF NOT EXISTS `addresses` (
-  `adress_id` smallint(4) NOT NULL AUTO_INCREMENT COMMENT 'Identification number of adress',
-  `adress_country` varchar(65) NOT NULL COMMENT 'Country name',
+CREATE TABLE IF NOT EXISTS `addresses` ( -- якщо чесно, то я не зрозумів, до чого ця табличка
+  `adress_id` smallint(4) NOT NULL AUTO_INCREMENT COMMENT 'Identification number of adress', -- слово address писати не потрібно, крім того, воно написане із помилкою
+  `adress_country` varchar(65) NOT NULL COMMENT 'Country name', -- мало б бути country_id і звязок із таблицею countries
   `adress_city` varchar(65) NOT NULL COMMENT 'City name',
-  `adress_street` varchar(50) NOT NULL COMMENT 'The street name',
+  `adress_street` varchar(50) NOT NULL COMMENT 'The street name', -- street i house треба обєднати в одне поле 
   `adress_house` smallint(5) NOT NULL COMMENT 'The street number',
-  `adress_zip` mediumint(5) NOT NULL COMMENT 'Zone Improvement Plan code',
+  `adress_zip` mediumint(5) NOT NULL COMMENT 'Zone Improvement Plan code', -- int - це погано, бо ындекс може бути 00023
   PRIMARY KEY (`adress_id`),
   UNIQUE KEY `adress_country` (`adress_country`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
