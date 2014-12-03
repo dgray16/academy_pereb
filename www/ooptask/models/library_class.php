@@ -1,7 +1,7 @@
 <?php
 class Library {
 	public function getConnection(){
-		include ("/../config/config.php");
+		include ("/../../config/config.php");
 		$connect = mysql_connect($dbhost, $dbuser, $dbpass);
 		mysql_select_db($dbname,$connect);
 		return $connect;
